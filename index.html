@@ -1,570 +1,1630 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="utf-8">
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-  <meta content="" name="description">
-  <meta content="" name="keywords">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tejaswini Vemulapally | AI Engineer</title>
+<meta name="description" content="MS AI @ University of Michigan-Dearborn. AI/ML Engineer with production experience in autonomous systems, ADAS, and generative AI. Seeking full-time roles.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-  <!-- Favicons -->
-  <link href="assets/img/favicon.png" rel="icon">
-  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+<style>
+  :root {
+    --ink: #0b0c0e;
+    --ink-2: #1e2027;
+    --ink-3: #2c2f3a;
+    --muted: #6b7280;
+    --muted-2: #9ca3af;
+    --surface: #f8f7f4;
+    --surface-2: #f0ede8;
+    --border: rgba(11,12,14,0.08);
+    --accent: #1a46e5;
+    --accent-2: #0f2fa3;
+    --accent-glow: rgba(26,70,229,0.12);
+    --gold: #c9951a;
+    --teal: #0e7c6e;
+    --red: #c0392b;
+    --radius: 4px;
+    --radius-lg: 10px;
+    --font-display: 'Syne', sans-serif;
+    --font-body: 'DM Sans', sans-serif;
+    --font-mono: 'DM Mono', monospace;
+  }
 
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com" rel="preconnect">
-  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-  <!-- Vendor CSS Files -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
-  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  html { scroll-behavior: smooth; }
 
-  <!-- Main CSS File -->
-  <link href="assets/css/main.css" rel="stylesheet">
+  body {
+    font-family: var(--font-body);
+    background: var(--surface);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
 
-  <!-- =======================================================
-  * Template Name: iPortfolio
-  * Template URL: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/
-  * Updated: Jun 29 2024 with Bootstrap v5.3.3
-  * Author: BootstrapMade.com
-  * License: https://bootstrapmade.com/license/
-  ======================================================== -->
+  /* ── NOISE TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* ── NAVIGATION ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 clamp(1.5rem, 5vw, 4rem);
+    height: 64px;
+    background: rgba(248,247,244,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.05rem;
+    letter-spacing: -0.02em;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 2rem;
+    list-style: none;
+  }
+
+  .nav-links a {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--ink); }
+
+  .nav-cta {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    text-decoration: none;
+    border: 1.5px solid var(--accent);
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius);
+    transition: background 0.2s, color 0.2s;
+  }
+
+  .nav-cta:hover {
+    background: var(--accent);
+    color: #fff;
+  }
+
+  .nav-right {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .nav-menu-link {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    text-decoration: none;
+    padding: 0.45rem 1rem;
+    border-radius: var(--radius);
+    border: 1.5px solid rgba(11,12,14,0.18);
+    background: transparent;
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  .nav-menu-link:hover {
+    color: var(--ink);
+    border-color: rgba(11,12,14,0.35);
+    background: rgba(11,12,14,0.04);
+  }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 80px clamp(1.5rem, 5vw, 4rem) 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-bg-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 60% at 70% 50%, black 30%, transparent 100%);
+    pointer-events: none;
+  }
+
+  .hero-accent-blob {
+    position: absolute;
+    right: -100px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(26,70,229,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-left {
+    position: relative;
+    z-index: 1;
+    max-width: 580px;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent);
+    background: var(--accent-glow);
+    border: 1px solid rgba(26,70,229,0.2);
+    padding: 0.35rem 0.9rem;
+    border-radius: 100px;
+    margin-bottom: 1.8rem;
+    animation: fadeUp 0.6s ease both;
+  }
+
+  .hero-badge::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.5; transform: scale(0.8); }
+  }
+
+  .hero-name {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+    animation: fadeUp 0.6s 0.1s ease both;
+  }
+
+  .hero-role {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+    color: var(--accent);
+    letter-spacing: -0.02em;
+    margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s 0.2s ease both;
+  }
+
+  .hero-desc {
+    font-size: 1.05rem;
+    line-height: 1.75;
+    color: var(--muted);
+    max-width: 480px;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.3s ease both;
+  }
+
+  .hero-desc strong { color: var(--ink); font-weight: 500; }
+
+  .hero-stats {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2.5rem;
+    animation: fadeUp 0.6s 0.35s ease both;
+  }
+
+  .stat {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stat-num {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: 1.8rem;
+    letter-spacing: -0.03em;
+    color: var(--ink);
+  }
+
+  .stat-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    flex-wrap: wrap;
+    animation: fadeUp 0.6s 0.4s ease both;
+  }
+
+  .btn-primary {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: #fff;
+    background: var(--ink);
+    text-decoration: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: var(--radius);
+    transition: background 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { background: var(--ink-3); transform: translateY(-1px); }
+
+  .btn-outline {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--ink);
+    background: transparent;
+    text-decoration: none;
+    padding: 0.8rem 1.8rem;
+    border-radius: var(--radius);
+    border: 1.5px solid var(--border);
+    transition: border-color 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-outline:hover { border-color: var(--ink); transform: translateY(-1px); }
+
+  .hero-right {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: fadeUp 0.8s 0.2s ease both;
+  }
+
+  .photo-frame {
+    position: relative;
+    width: 320px;
+    height: 380px;
+  }
+
+  .photo-frame::before {
+    content: '';
+    position: absolute;
+    inset: -12px;
+    border: 1.5px solid rgba(26,70,229,0.15);
+    border-radius: 12px;
+    transform: rotate(3deg);
+  }
+
+  .photo-frame::after {
+    content: '';
+    position: absolute;
+    inset: -24px;
+    border: 1px solid rgba(26,70,229,0.07);
+    border-radius: 14px;
+    transform: rotate(6deg);
+  }
+
+  .photo-frame img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    position: relative;
+    z-index: 1;
+    filter: grayscale(15%);
+  }
+
+  .photo-tag {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    background: var(--ink);
+    color: #fff;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    padding: 0.5rem 0.9rem;
+    border-radius: var(--radius);
+    z-index: 2;
+  }
+
+  .photo-tag span { color: var(--accent); display: block; font-size: 0.8rem; font-weight: 500; font-family: var(--font-display); letter-spacing: 0; }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SCROLL INDICATOR ── */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: clamp(1.5rem, 5vw, 4rem);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+    z-index: 1;
+  }
+
+  .scroll-indicator span {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+  }
+
+  .scroll-line {
+    width: 40px;
+    height: 1px;
+    background: linear-gradient(to right, var(--muted-2), transparent);
+    animation: scrollAnim 2s ease infinite;
+  }
+
+  @keyframes scrollAnim {
+    0% { transform: scaleX(0); transform-origin: left; }
+    50% { transform: scaleX(1); transform-origin: left; }
+    51% { transform-origin: right; }
+    100% { transform: scaleX(0); transform-origin: right; }
+  }
+
+  /* ── SECTIONS SHARED ── */
+  section {
+    padding: clamp(4rem, 8vw, 7rem) clamp(1.5rem, 5vw, 4rem);
+    position: relative;
+  }
+
+  .section-label {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 0.6rem;
+    display: block;
+  }
+
+  .section-title {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+    letter-spacing: -0.03em;
+    color: var(--ink);
+    margin-bottom: 1rem;
+  }
+
+  .section-sub {
+    font-size: 1rem;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 3.5rem;
+  }
+
+  /* ── ABOUT ── */
+  #about {
+    background: var(--surface);
+  }
+
+  .about-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .about-text p {
+    font-size: 1.05rem;
+    line-height: 1.85;
+    color: var(--muted);
+    margin-bottom: 1.3rem;
+  }
+
+  .about-text p strong {
+    color: var(--ink);
+    font-weight: 500;
+  }
+
+  .about-interests {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--ink-3);
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    padding: 0.3rem 0.75rem;
+    border-radius: 100px;
+  }
+
+  .skills-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+  }
+
+  .skill-group h4 {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    margin-bottom: 0.9rem;
+  }
+
+  .skill-bars { display: flex; flex-direction: column; gap: 0.7rem; }
+
+  .skill-row {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .skill-name {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--ink);
+    min-width: 100px;
+    font-family: var(--font-mono);
+  }
+
+  .skill-track {
+    flex: 1;
+    height: 3px;
+    background: var(--surface-2);
+    border-radius: 100px;
+    overflow: visible;
+    position: relative;
+  }
+
+  .skill-fill {
+    height: 100%;
+    background: var(--ink);
+    border-radius: 100px;
+    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+  }
+
+  .skill-fill.accent { background: var(--accent); }
+  .skill-fill.gold { background: var(--gold); }
+  .skill-fill.teal { background: var(--teal); }
+
+  .skill-pct {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted-2);
+    min-width: 32px;
+    text-align: right;
+  }
+
+  /* ── EXPERIENCE TIMELINE ── */
+  #resume {
+    background: var(--ink);
+    color: #fff;
+  }
+
+  #resume .section-label { color: rgba(255,255,255,0.4); }
+  #resume .section-title { color: #fff; }
+  #resume .section-sub { color: rgba(255,255,255,0.5); }
+
+  .timeline {
+    position: relative;
+    padding-left: 2.5rem;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 8px;
+    bottom: 0;
+    width: 1px;
+    background: rgba(255,255,255,0.08);
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-bottom: 3rem;
+  }
+
+  .timeline-item:last-child { padding-bottom: 0; }
+
+  .timeline-dot {
+    position: absolute;
+    left: -2.5rem;
+    top: 6px;
+    width: 9px;
+    height: 9px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid var(--ink);
+    box-shadow: 0 0 0 3px rgba(26,70,229,0.3);
+    transform: translateX(-4px);
+  }
+
+  .timeline-dot.research { background: var(--gold); box-shadow: 0 0 0 3px rgba(201,149,26,0.3); }
+  .timeline-dot.teaching { background: var(--teal); box-shadow: 0 0 0 3px rgba(14,124,110,0.3); }
+
+  .timeline-meta {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    margin-bottom: 0.4rem;
+  }
+
+  .timeline-title {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.15rem;
+    letter-spacing: -0.01em;
+    color: #fff;
+    margin-bottom: 0.2rem;
+  }
+
+  .timeline-org {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.5);
+    margin-bottom: 1rem;
+  }
+
+  .timeline-bullets {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .timeline-bullets li {
+    font-size: 0.92rem;
+    line-height: 1.65;
+    color: rgba(255,255,255,0.65);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+
+  .timeline-bullets li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-size: 0.75rem;
+  }
+
+  .timeline-bullets li strong {
+    color: #fff;
+    font-weight: 500;
+  }
+
+  .timeline-tag {
+    display: inline-block;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    padding: 0.22rem 0.6rem;
+    border-radius: 100px;
+    margin-right: 0.4rem;
+    margin-top: 0.8rem;
+  }
+
+  .timeline-tag.blue { background: rgba(26,70,229,0.2); color: #7fa6ff; }
+  .timeline-tag.gold { background: rgba(201,149,26,0.2); color: #e5b547; }
+  .timeline-tag.teal { background: rgba(14,124,110,0.2); color: #4ecdc4; }
+  .timeline-tag.gray { background: rgba(255,255,255,0.06); color: rgba(255,255,255,0.45); }
+
+  .education-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin-top: 3rem;
+  }
+
+  .edu-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+  }
+
+  .edu-deg {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1rem;
+    color: #fff;
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+  }
+
+  .edu-school {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 0.2rem;
+  }
+
+  .edu-year {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+
+  /* ── PROJECTS ── */
+  #projects {
+    background: var(--surface);
+  }
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    border: 1.5px solid var(--border);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+  }
+
+  .project-card {
+    background: var(--surface);
+    padding: 2rem;
+    transition: background 0.2s;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    min-height: 280px;
+  }
+
+  .project-card:hover { background: #fff; }
+
+  .project-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+    color: var(--muted-2);
+    margin-bottom: 1.2rem;
+  }
+
+  .project-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .project-name {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 1.05rem;
+    letter-spacing: -0.01em;
+    color: var(--ink);
+    margin-bottom: 0.6rem;
+    line-height: 1.3;
+  }
+
+  .project-desc {
+    font-size: 0.875rem;
+    line-height: 1.65;
+    color: var(--muted);
+    margin-bottom: auto;
+    flex: 1;
+  }
+
+  .project-metrics {
+    margin-top: 1.2rem;
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .metric {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    background: var(--ink);
+    color: #fff;
+    padding: 0.22rem 0.55rem;
+    border-radius: var(--radius);
+  }
+
+  .metric.accent { background: var(--accent); }
+  .metric.gold { background: var(--gold); }
+  .metric.teal { background: var(--teal); }
+
+  .project-github-link {
+    display: inline-block;
+    margin-top: 0.9rem;
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(26,70,229,0.25);
+    padding-bottom: 1px;
+    transition: border-color 0.2s;
+  }
+
+  .project-github-link:hover { border-color: var(--accent); }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--ink-2);
+    color: #fff;
+  }
+
+  #contact .section-label { color: rgba(255,255,255,0.35); }
+  #contact .section-title { color: #fff; }
+
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 5rem;
+    align-items: center;
+  }
+
+  .contact-headline {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    letter-spacing: -0.03em;
+    color: #fff;
+    line-height: 1.2;
+    margin-bottom: 1.2rem;
+  }
+
+  .contact-headline em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .contact-desc {
+    font-size: 1rem;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.75;
+    margin-bottom: 2rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    padding: 1rem 1.25rem;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: var(--radius-lg);
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .contact-link:hover {
+    background: rgba(255,255,255,0.07);
+    border-color: rgba(255,255,255,0.12);
+  }
+
+  .contact-link-icon {
+    width: 38px; height: 38px;
+    border-radius: 8px;
+    background: rgba(255,255,255,0.06);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .contact-link-text {
+    flex: 1;
+  }
+
+  .contact-link-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.35);
+    display: block;
+    margin-bottom: 2px;
+  }
+
+  .contact-link-value {
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.85);
+    font-weight: 500;
+  }
+
+  .contact-arrow {
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.25);
+  }
+
+  /* ── AVAILABILITY BADGE ── */
+  .availability {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #4ecdc4;
+    background: rgba(14,124,110,0.15);
+    border: 1px solid rgba(14,124,110,0.25);
+    padding: 0.4rem 1rem;
+    border-radius: 100px;
+    margin-bottom: 1.5rem;
+  }
+
+  .availability::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #4ecdc4;
+    animation: pulse 2s infinite;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    padding: 2rem clamp(1.5rem, 5vw, 4rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid rgba(255,255,255,0.04);
+  }
+
+  footer p {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: rgba(255,255,255,0.25);
+    letter-spacing: 0.04em;
+  }
+
+  footer p a { color: rgba(255,255,255,0.4); text-decoration: none; }
+  footer p a:hover { color: rgba(255,255,255,0.7); }
+
+  /* ── MARQUEE ── */
+  .marquee-section {
+    background: var(--ink);
+    overflow: hidden;
+    padding: 1rem 0;
+    border-top: 1px solid rgba(255,255,255,0.04);
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    animation: marqueeMove 30s linear infinite;
+    width: max-content;
+  }
+
+  .marquee-item {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 0 2.5rem;
+    white-space: nowrap;
+  }
+
+  .marquee-item span {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.25);
+  }
+
+  .marquee-item::after {
+    content: '·';
+    color: rgba(255,255,255,0.15);
+    font-size: 1.5rem;
+    line-height: 0;
+  }
+
+  @keyframes marqueeMove {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    #hero {
+      grid-template-columns: 1fr;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .hero-right { display: none; }
+    .hero-stats { justify-content: center; }
+    .hero-actions { justify-content: center; }
+    .hero-desc { margin: 0 auto 2.5rem; }
+    .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
+    .education-cards { grid-template-columns: 1fr; }
+    .research-row { grid-template-columns: 1fr; gap: 0.5rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s ease, transform 0.65s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* ── MOBILE NAV TOGGLE ── */
+  .nav-toggle { display: none; }
+
+  @media (max-width: 600px) {
+    .nav-links { display: none; }
+    .nav-toggle { display: block; background: none; border: none; cursor: pointer; font-size: 1.2rem; color: var(--ink); }
+  }
+</style>
 </head>
+<body>
 
-<body class="index-page">
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Teju<span>.</span></a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#resume">Experience</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="nav-right">
+    <a href="assets/Tejaswini_Vemulapally_Resume.pdf" target="_blank" class="nav-menu-link">Resume</a>
+  </div>
+</nav>
 
-  <header id="header" class="header dark-background d-flex flex-column">
-    <i class="header-toggle d-xl-none bi bi-list"></i>
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-accent-blob"></div>
 
-    <div class="profile-img">
-      <img src="assets/img/my-profile-img.jpeg" alt="" class="img-fluid rounded-circle">
+  <div class="hero-left">
+    <div class="hero-badge">Open to Full-Time Roles · MS AI · GPA 3.71</div>
+    <h1 class="hero-name">Tejaswini<br>Vemulapally</h1>
+    <p class="hero-role">AI / ML Engineer</p>
+    <p class="hero-desc">
+      Master's candidate in <strong>Artificial Intelligence</strong> at University of Michigan, Dearborn (GPA 3.71). 
+      Building AI agents with <strong>MCP integrations</strong> and production inference pipelines at Leap Innovations, 
+      while researching AV safety systems at UMTRI. Shipping AI that works in the real world.
+    </p>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-num">3.71</span>
+        <span class="stat-label">GPA</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">10+</span>
+        <span class="stat-label">Projects</span>
+      </div>
+      <div class="stat">
+        <span class="stat-num">95%</span>
+        <span class="stat-label">Lane Det. Acc.</span>
+      </div>
     </div>
-
-    <a href="index.html" class="logo d-flex align-items-center justify-content-center">
-      <!-- Uncomment the line below if you also wish to use an image logo -->
-      <!-- <img src="assets/img/logo.png" alt=""> -->
-      <h1 class="sitename">Tejaswini Vemulapally</h1>
-    </a>
-
-    <div class="social-links text-center">
-      <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-      <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-      <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-      <a href="#" class="google-plus"><i class="bi bi-skype"></i></a>
-      <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
+    <div class="hero-actions">
+      <a href="#projects" class="btn-primary">View Projects</a>
+      <a href="#contact" class="btn-outline" title="Scroll to contact section to reach out about job opportunities">Let's Talk</a>
     </div>
+  </div>
 
-    <nav id="navmenu" class="navmenu">
-      <ul>
-        <li><a href="#hero" class="active"><i class="bi bi-house navicon"></i>Home</a></li>
-        <li><a href="#about"><i class="bi bi-person navicon"></i> About</a></li>
-        <li><a href="#resume"><i class="bi bi-file-earmark-text navicon"></i> Resume</a></li>
-        <li><a href="#projects"><i class="bi bi-images navicon"></i>  Projects</a></li>
-        <li><a href="#contact"><i class="bi bi-envelope navicon"></i> Contact</a></li>
+  <div class="hero-right">
+    <div class="photo-frame">
+      <img src="assets/img/my-profile-img.jpeg" alt="Tejaswini Vemulapally">
+      <div class="photo-tag">
+        <span>Tejaswini</span>
+        MS AI · UMich-Dearborn
+      </div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <div class="marquee-item"><span>Python</span></div>
+    <div class="marquee-item"><span>C / C++</span></div>
+    <div class="marquee-item"><span>TensorFlow</span></div>
+    <div class="marquee-item"><span>PyTorch</span></div>
+    <div class="marquee-item"><span>OpenCV</span></div>
+    <div class="marquee-item"><span>Scikit-learn</span></div>
+    <div class="marquee-item"><span>LLMs + RAG</span></div>
+    <div class="marquee-item"><span>AI Agents</span></div>
+    <div class="marquee-item"><span>Computer Vision</span></div>
+    <div class="marquee-item"><span>ADAS</span></div>
+    <div class="marquee-item"><span>Unity</span></div>
+    <div class="marquee-item"><span>ROS</span></div>
+    <div class="marquee-item"><span>CARLA</span></div>
+    <div class="marquee-item"><span>CUDA</span></div>
+    <div class="marquee-item"><span>Linux</span></div>
+    <div class="marquee-item"><span>AWS · GCP · Azure</span></div>
+    <!-- repeat for seamless loop -->
+    <div class="marquee-item"><span>Python</span></div>
+    <div class="marquee-item"><span>C / C++</span></div>
+    <div class="marquee-item"><span>TensorFlow</span></div>
+    <div class="marquee-item"><span>PyTorch</span></div>
+    <div class="marquee-item"><span>OpenCV</span></div>
+    <div class="marquee-item"><span>Scikit-learn</span></div>
+    <div class="marquee-item"><span>LLMs + RAG</span></div>
+    <div class="marquee-item"><span>AI Agents</span></div>
+    <div class="marquee-item"><span>Computer Vision</span></div>
+    <div class="marquee-item"><span>ADAS</span></div>
+    <div class="marquee-item"><span>Unity</span></div>
+    <div class="marquee-item"><span>ROS</span></div>
+    <div class="marquee-item"><span>CARLA</span></div>
+    <div class="marquee-item"><span>CUDA</span></div>
+    <div class="marquee-item"><span>Linux</span></div>
+    <div class="marquee-item"><span>AWS · GCP · Azure</span></div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <span class="section-label">01 / About</span>
+  <h2 class="section-title">Building AI that matters.</h2>
+  <div class="about-grid">
+    <div class="about-text reveal">
+      <p>
+        I'm a Master's student in Artificial Intelligence at <strong>University of Michigan, Dearborn</strong> (GPA 3.71), 
+        with a clear thesis: AI is only as good as its impact on real people in real conditions.
+      </p>
+      <p>
+        Currently I'm building a production <strong>AI inference agent at Leap Innovations</strong> using Python, 
+        MCP integrations, and modular pre/post-processing pipelines with full CI/CD on Linux. Simultaneously, 
+        I'm a Research Assistant at <strong>UMTRI</strong> working across three AV safety studies: designing 
+        DOT/SAE-compliant blind spot warning interfaces, conducting a <strong>Cruden simulator study with 40 participants</strong> 
+        on how seniors with cognitive challenges respond to AV systems, and completing crash causation analysis 
+        using DREAM statistical methods on NHTSA datasets.
+      </p>
+      <p>
+        Previously I built Unity-based generative AI simulations producing 50+ procedurally generated 
+        environments for autonomous agent behavioral testing. At <strong>Mroads</strong>, I shipped three 
+        systems to production, including a facial recognition system with 95%+ accuracy and a full 
+        LLM + RAG + vector database recruitment platform that consolidated six fragmented tools into one.
+      </p>
+      <p>
+        Seeking full-time AI/ML and autonomous systems roles where I can own problems end-to-end, 
+        from data pipeline to deployed model. Based in <strong>Michigan, USA</strong>.
+      </p>
+      <div class="about-interests">
+        <span class="tag">Autonomous Systems</span>
+        <span class="tag">Computer Vision</span>
+        <span class="tag">ADAS</span>
+        <span class="tag">LLMs & RAG</span>
+        <span class="tag">AI Agents</span>
+        <span class="tag">ML Pipelines</span>
+        <span class="tag">AV Safety</span>
+        <span class="tag">Generative AI</span>
+      </div>
+    </div>
+    <div class="skills-panel reveal" style="transition-delay: 0.15s">
+      <div class="skill-group">
+        <h4>Languages & Frameworks</h4>
+        <div class="skill-bars">
+          <div class="skill-row">
+            <span class="skill-name">Python</span>
+            <div class="skill-track"><div class="skill-fill" style="width:90%"></div></div>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">HTML/CSS</span>
+            <div class="skill-track"><div class="skill-fill" style="width:90%"></div></div>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">SQL</span>
+            <div class="skill-track"><div class="skill-fill" style="width:85%"></div></div>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">JavaScript</span>
+            <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Java</span>
+            <div class="skill-track"><div class="skill-fill" style="width:75%"></div></div>
+            <span class="skill-pct">75%</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>AI / ML Stack</h4>
+        <div class="skill-bars">
+          <div class="skill-row">
+            <span class="skill-name">TensorFlow</span>
+            <div class="skill-track"><div class="skill-fill accent" style="width:82%"></div></div>
+            <span class="skill-pct">82%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Scikit-learn</span>
+            <div class="skill-track"><div class="skill-fill accent" style="width:80%"></div></div>
+            <span class="skill-pct">80%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">OpenCV</span>
+            <div class="skill-track"><div class="skill-fill accent" style="width:75%"></div></div>
+            <span class="skill-pct">75%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Deep Learning</span>
+            <div class="skill-track"><div class="skill-fill accent" style="width:80%"></div></div>
+            <span class="skill-pct">80%</span>
+          </div>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Dev & Tools</h4>
+        <div class="skill-bars">
+          <div class="skill-row">
+            <span class="skill-name">Git</span>
+            <div class="skill-track"><div class="skill-fill gold" style="width:90%"></div></div>
+            <span class="skill-pct">90%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">Flask/Django</span>
+            <div class="skill-track"><div class="skill-fill gold" style="width:85%"></div></div>
+            <span class="skill-pct">85%</span>
+          </div>
+          <div class="skill-row">
+            <span class="skill-name">React/Node</span>
+            <div class="skill-track"><div class="skill-fill gold" style="width:80%"></div></div>
+            <span class="skill-pct">80%</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- EXPERIENCE -->
+<section id="resume">
+  <span class="section-label">02 / Experience</span>
+  <h2 class="section-title">Where I've worked.</h2>
+  <p class="section-sub">From production inference pipelines and AI agents to autonomous vehicle safety research. Every role has been about making AI useful.</p>
+
+  <div class="timeline">
+
+    <div class="timeline-item reveal">
+      <div class="timeline-dot"></div>
+      <div class="timeline-meta">Feb 2026 – Present · Remote</div>
+      <div class="timeline-title">AI Agentic Engineer</div>
+      <div class="timeline-org">Leap Innovations</div>
+      <ul class="timeline-bullets">
+        <li>Architected a production Python <strong>AI PR Reviewer Agent</strong> integrating GitHub MCP Server to automate diff-aware PR analysis across multi-repo environments, reducing manual code review time by an estimated <strong>60%</strong>.</li>
+        <li>Engineered secret-redaction guardrails, webhook automation supporting multiple repo configurations, and iterative latency profiling with full unit/functional test coverage deployed in a <strong>Linux CI/CD</strong> environment.</li>
       </ul>
-    </nav>
-
-  </header>
-
-  <main class="main">
-
-    <!-- Hero Section -->
-    <section id="hero" class="hero section dark-background">
-
-      <img src="assets/img/hero-bg.png" alt="" data-aos="fade-in" class="">
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-        <h2>Tejaswini Vemulapally</h2>
-        <p>I'm <span class="typed" data-typed-items="Developer, AI Engineer, Tester">Designer</span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span><span class="typed-cursor typed-cursor--blink" aria-hidden="true"></span></p>
-      </div>
-
-    </section><!-- /Hero Section -->
-
-    <!-- About Section -->
-    <section id="about" class="about section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>About</h2>
-        <h2>AI Engineer</h2>
-        <p>I’m a Master’s student in Artificial Intelligence at the University of Michigan Dearborn, focused on applying AI and machine learning to practical challenges in automation and autonomous systems.
-
-          During my Data Science internship at Mroads, I developed a resume automation pipeline to streamline recruiter workflows, a face recognition system to enhance accuracy and responsiveness, and a virtual recruiter agent to improve candidate-job matching. These experiences strengthened my ability to design and deploy effective machine learning solutions.
-          
-          I’ve also worked on a lane detection system using OpenCV and TensorFlow, supporting ADAS and autonomous navigation use cases. As a Research Assistant, I contribute to Unity-based simulations and spectrogram-based analysis for detecting synthetic vs. real audio, advancing research in multimedia forensics.
-          
-          My core strengths include Python, TensorFlow, OpenCV, and strong experience with data preprocessing, model building, and deployment. I'm passionate about using AI to solve meaningful, real-world problems.
-          
-          Let’s connect! I’m open to opportunities where I can contribute to innovative AI projects and grow through hands-on collaboration.</p>
-      </div><!-- End Section Title -->
-      </div>
-
-    </section><!-- /About Section -->
-    <!-- Skills Section -->
-    <section id="skills" class="skills section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Skills</h2>
-        <p>Core technical, AI/ML, and algorithmic skills used to build scalable, production-ready intelligence systems.</p>
-      </div><!-- End Section Title -->
-    
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-    
-        <div class="row skills-content skills-animation">
-    
-          <!-- Programming & Frameworks -->
-          <div class="col-lg-6">
-            <h4 class="mb-3">Programming &amp; Frameworks</h4>
-    
-            <div class="progress">
-              <span class="skill"><span>Python</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-    
-            <div class="progress">
-              <span class="skill"><span>JavaScript</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-    
-            <div class="progress">
-              <span class="skill"><span>Java</span> <i class="val">75%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-    
-            <div class="progress">
-              <span class="skill"><span>HTML / CSS</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-    
-            <div class="progress">
-              <span class="skill"><span>SQL</span> <i class="val">85%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-    
-            <div class="progress">
-              <span class="skill"><span>Git</span> <i class="val">90%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-          </div>
-    
-          <!-- AI/ML & Tools -->
-          <div class="col-lg-6">
-            <h4 class="mb-3">AI / ML / Dev & Data Tools</h4>
-    
-            <div class="progress">
-              <span class="skill"><span>Machine Learning</span> <i class="val">85%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-    
-            <div class="progress">
-              <span class="skill"><span>Deep Learning</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-    
-            <div class="progress">
-              <span class="skill"><span>TensorFlow</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-    
-            <div class="progress">
-              <span class="skill"><span>Scikit-learn</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-    
-            <div class="progress">
-              <span class="skill"><span>Flask / Django</span> <i class="val">85%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-    
-            <div class="progress">
-              <span class="skill"><span>React / Node.js</span> <i class="val">80%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-    
-            <div class="progress">
-              <span class="skill"><span>OpenCV</span> <i class="val">70%</i></span>
-              <div class="progress-bar-wrap">
-                <div class="progress-bar" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
-              </div>
-            </div><!-- End Skills Item -->
-    
-          </div>
-    
-        </div>
-    
-        <!-- Supplemental / Foundational -->
-        <div class="row mt-4">
-          <div class="col-12">
-            <h5 class="mb-2">Other &amp; Foundational</h5>
-            <p style="margin:0;">
-              <strong>Tools:</strong> Postman (API testing), WordPress, MySQL / RDBMS<br>
-              <strong>Concepts:</strong> Turing Machines, Dynamic Programming, Algorithm Design, Discrete Math, Graph Theory, Logic &amp; Boolean Algebra
-            </p>
-          </div>
-        </div>
-    
-      </div>
-    
-    </section><!-- /Skills Section -->
-    
-
-    <!-- Resume Section -->
-    <section id="resume" class="resume section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Resume</h2>
-        <p>Master’s student in Artificial Intelligence with applied research in deepfake audio detection and generative-AI enhanced interactive systems. Experienced teaching assistant translating theoretical CS concepts into practical learning. Delivered production ML solutions in internships—automating resume generation, facial recognition, and intelligent recruiter agents—boosting efficiency and matching accuracy. Skilled in end-to-end AI deployment, Python, ML/DL, NLP, and web technologies.</p>
-      </div><!-- End Section Title -->
-    
-      <div class="container">
-    
-        <div class="row">
-    
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
-            <h3 class="resume-title">Summary</h3>
-    
-            <div class="resume-item pb-0">
-              <h4>Tejaswini Vemulapally</h4>
-              <p><em>Master of Science in Artificial Intelligence candidate with hands-on research and applied ML experience; bridging theory and production through scalable systems.</em></p>
-              <ul>
-                <li>tejaswini02021@gmail.com</li>
-                <li>+1 313 384 4589</li>
-                <li><a href="#" target="_blank">GitHub</a> | <a href="#" target="_blank">LinkedIn</a></li>
-              </ul>
-            </div><!-- End Resume Item -->
-    
-            <h3 class="resume-title">Education</h3>
-            <div class="resume-item">
-              <h4>Master of Science in Artificial Intelligence</h4>
-              <h5>2024 - 2026</h5>
-              <p><em>University of Michigan–Dearborn</em></p>
-            </div><!-- End Resume Item -->
-    
-            <div class="resume-item">
-              <h4>Bachelor in CSE (Artificial Intelligence &amp; Machine Learning)</h4>
-              <h5>2020 - 2024</h5>
-              <p><em>Institute of Aeronautical Engineering</em></p>
-            </div><!-- End Resume Item -->
-    
-          </div>
-    
-          <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
-            <h3 class="resume-title">Professional Experience</h3>
-    
-            <div class="resume-item">
-              <h4>Teaching Assistant, Algorithms, Computability &amp; Complexity Theory (ESIEA)</h4>
-              <h5>Summer 2025</h5>
-              <p><em>University of Michigan–Dearborn</em></p>
-              <ul>
-                <li>Led lab sessions and hands-on workshops on Turing machines, complexity theory, and algorithm design for an international student cohort.</li>
-                <li>Provided grading, one-on-one mentoring, and reinforced theoretical concepts with practical coding exercises to improve comprehension and performance.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-    
-            <div class="resume-item">
-              <h4>Research Assistant – Deepfake Audio Detection</h4>
-              <h5>April 2025 – Present</h5>
-              <p><em>University of Michigan–Dearborn (under Dr. Hafiz Malik)</em></p>
-              <ul>
-                <li>Developing spectrum-based techniques to detect synthetic audio using features like spectral entropy and vocal frequency patterns for multimedia forensics.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-    
-            <div class="resume-item">
-              <h4>Research Assistant – Generative AI Interactive Simulations</h4>
-              <h5>Oct 2024 – May 2025</h5>
-              <p><em>University of Michigan–Dearborn (with Prof. Bruce Maxim)</em></p>
-              <ul>
-                <li>Built Unity-based interactive simulations augmented with generative AI to enhance user engagement and real-time system responsiveness.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-    
-            <div class="resume-item">
-              <h4>Data Scientist Intern</h4>
-              <h5>Mar 2024 – Jul 2024</h5>
-              <p><em>Mroads Pvt Ltd</em></p>
-              <ul>
-                <li>Built an automated resume generation pipeline that cut manual entry time by 75%, increasing recruiter throughput by 50%.</li>
-                <li>Engineered face recognition algorithms reducing processing latency by 50% and false positives by 20%.</li>
-                <li>Developed and deployed ML-driven virtual recruiter agent, improving candidate matching accuracy by 35% and accelerating hiring cycles.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-    
-            <div class="resume-item">
-              <h4>Artificial Intelligence Intern</h4>
-              <h5>Jun 2023 – Jul 2023</h5>
-              <p><em>CodeClause</em></p>
-              <ul>
-                <li>Designed lane detection pipelines using OpenCV and TensorFlow achieving 95% accuracy across varied road conditions.</li>
-                <li>Optimized inference performance by 30% to enable real-time deployment in autonomous driving scenarios.</li>
-              </ul>
-            </div><!-- End Resume Item -->
-    
-          </div>
-    
-        </div>
-    
-      </div>
-    
-    </section><!-- /Resume Section -->
-    
-
-    <!-- Portfolio Section -->
-    <section id="projects" class="projects section light-background">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Projects</h2>
-          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-    
-            <!-- Deepfake Audio Detection (Research) -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-research filter-ml">
-              <div class="portfolio-content h-100">
-                <div class="portfolio-info">
-                  <h4>Deepfake Audio Detection</h4>
-                  <p>Spectrum-based detection using spectral entropy and vocal frequency patterns to flag synthetic audio for multimedia forensics. Research under Dr. Hafiz Malik.</p>
-                  <a href="assets/img/projects/deepfake-audio-detection.jpg" title="Deepfake Audio Detection" data-gallery="projects-gallery-research" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details-deepfake.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Project Item -->
-    
-            <!-- Generative AI Interactive Simulations (Research) -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-research filter-ml">
-              <div class="portfolio-content h-100">
-                <div class="portfolio-info">
-                  <h4>Generative AI Interactive Simulations</h4>
-                  <p>Unity-based simulations enhanced with generative AI to boost engagement and responsiveness. Collaboration with Prof. Bruce Maxim.</p>
-                  <a href="assets/img/projects/generative-ai-simulations.jpg" title="Generative AI Simulations" data-gallery="projects-gallery-research" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details-generative.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Project Item -->
-    
-            <!-- Alternative Medicine Recommendation System -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml filter-recommendation">
-              <div class="portfolio-content h-100">
-                <div class="portfolio-info">
-                  <h4>Alternative Medicine Recommendation</h4>
-                  <p>Built a symptom-driven recommendation engine using Random Forests, SVM, and KNN on a 22,500-record dataset to suggest alternative treatments with high precision.</p>
-                  <a href="assets/img/projects/alternative-medicine.jpg" title="Alternative Medicine Recommendation" data-gallery="projects-gallery-ml" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details-medicine.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Project Item -->
-    
-            <!-- Stock Price Prediction -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-ml filter-forecast">
-              <div class="portfolio-content h-100">
-                <div class="portfolio-info">
-                  <h4>Stock Price Prediction</h4>
-                  <p>Hybrid ARIMA + LSTM model achieving RMSE 3.72 and MAPE 6.5%, improving forecast accuracy by 20% over baselines through advanced feature engineering.</p>
-                  <a href="assets/img/projects/stock-prediction.jpg" title="Stock Price Prediction" data-gallery="projects-gallery-forecast" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details-stock.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Project Item -->
-    
-            <!-- Road Lane Detection System -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-cv filter-ml">
-              <div class="portfolio-content h-100">
-                <div class="portfolio-info">
-                  <h4>Road Lane Detection</h4>
-                  <p>Real-time lane detection using OpenCV and TensorFlow with over 90% precision across varied lighting/weather; latency reduced by 35% for smooth ADAS integration.</p>
-                  <a href="assets/img/projects/lane-detection.jpg" title="Road Lane Detection" data-gallery="projects-gallery-cv" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details-lane.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Project Item -->
-    
-            <!-- Resume Builder Pipeline (Internship) -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-internship filter-ml">
-              <div class="portfolio-content h-100">
-                <div class="portfolio-info">
-                  <h4>Automated Resume Builder</h4>
-                  <p>Developed at Mroads Pvt Ltd: pipeline that cut manual resume entry time by 75%, increasing recruiter throughput by 50% through intelligent automation.</p>
-                  <a href="assets/img/projects/resume-builder.jpg" title="Automated Resume Builder" data-gallery="projects-gallery-internship" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details-resume.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Project Item -->
-    
-            <!-- Face Recognition System (Internship) -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-internship filter-cv">
-              <div class="portfolio-content h-100">
-                <div class="portfolio-info">
-                  <h4>Face Recognition System</h4>
-                  <p>Engineered and optimized facial recognition algorithms that reduced latency by 50% and false positives by 20%, improving system responsiveness.</p>
-                  <a href="assets/img/projects/face-recognition.jpg" title="Face Recognition System" data-gallery="projects-gallery-internship" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details-face.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Project Item -->
-    
-            <!-- Virtual Recruiter Agent (Internship) -->
-            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-internship filter-ml">
-              <div class="portfolio-content h-100">
-                <div class="portfolio-info">
-                  <h4>Virtual Recruiter Agent</h4>
-                  <p>Deployed ML models to improve candidate matching accuracy by 35%, accelerating recruitment cycles with intelligent decision support.</p>
-                  <a href="assets/img/projects/virtual-recruiter.jpg" title="Virtual Recruiter Agent" data-gallery="projects-gallery-internship" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                  <a href="project-details-recruiter.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
-                </div>
-              </div>
-            </div><!-- End Project Item -->
-    
-          </div><!-- End Projects Container -->
-    
-        </div>
-    
-      </div>
-    
-    </section><!-- /Projects Section -->
-    
-
-    <!-- Testimonials Section -->
-    <!-- Contact Section -->
-    <section id="contact" class="contact section">
-
-      <!-- Section Title -->
-      <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
-        <p>Necessitatibus eius consequatur ex aliquid fuga eum quidem sint consectetur velit</p>
-      </div><!-- End Section Title -->
-
-      <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-        <div class="row gy-4">
-
-          <div class="col-lg-5">
-
-            <div class="info-wrap">
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="200">
-                <i class="bi bi-geo-alt flex-shrink-0"></i>
-                <div>
-                  <h3>Location</h3>
-                  <p>Dearborn, MI, USA</p>
-                </div>
-              </div><!-- End Info Item -->
-          
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
-                <i class="bi bi-telephone flex-shrink-0"></i>
-                <div>
-                  <h3>Call</h3>
-                  <p>+1 313 384 4589</p>
-                </div>
-              </div><!-- End Info Item -->
-          
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="400">
-                <i class="bi bi-envelope flex-shrink-0"></i>
-                <div>
-                  <h3>Email</h3>
-                  <p>tejaswini02021@gmail.com</p>
-                </div>
-              </div><!-- End Info Item -->
-          
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="500">
-                <i class="bi bi-github flex-shrink-0"></i>
-                <div>
-                  <h3>GitHub</h3>
-                  <p><a href="#" target="_blank" rel="noopener">github.com/your-username</a></p>
-                </div>
-              </div><!-- End Info Item -->
-          
-              <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="600">
-                <i class="bi bi-linkedin flex-shrink-0"></i>
-                <div>
-                  <h3>LinkedIn</h3>
-                  <p><a href="https://www.linkedin.com/in/tejaswini-2k24/" target="_blank" rel="noopener">LinkedIn</a></p>
-                </div>
-              </div><!-- End Info Item -->
-          
-              <iframe 
-                title="University of Michigan–Dearborn location map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2933.39325478923!2d-83.20314468455182!3d42.322029979191285!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x883b88b3d55bd93b%3A0x3036f0d2cd0f01f9!2sUniversity%20of%20Michigan-Dearborn!5e0!3m2!1sen!2sus!4v1690890000000" 
-                frameborder="0" 
-                style="border:0; width: 100%; height: 270px;" 
-                allowfullscreen="" 
-                loading="lazy" 
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </div>
-          </div>
-          
-          </div><!-- End Contact Form -->
-
-        </div>
-
-      </div>
-
-    </section><!-- /Contact Section -->
-
-  </main>
-
-  <footer id="footer" class="footer position-relative light-background">
-
-    <div class="container">
-      <div class="copyright text-center ">
-        <p>© <span>Copyright</span> <strong class="px-1 sitename">Tejaswini Vemulapally</strong> <span>All Rights Reserved</span></p>
-      </div>
-      <div class="credits">
-
+      <div>
+        <span class="timeline-tag blue">Python</span>
+        <span class="timeline-tag blue">MCP</span>
+        <span class="timeline-tag gold">LLMs</span>
+        <span class="timeline-tag gray">CI/CD</span>
+        <span class="timeline-tag gray">Linux</span>
       </div>
     </div>
 
-  </footer>
+    <div class="timeline-item reveal" style="transition-delay: 0.08s">
+      <div class="timeline-dot research"></div>
+      <div class="timeline-meta">Aug 2025 – Present · Michigan, USA</div>
+      <div class="timeline-title">Research Assistant, Autonomous Vehicle Safety</div>
+      <div class="timeline-org">University of Michigan Transportation Research Institute (UMTRI)</div>
+      <ul class="timeline-bullets">
+        <li>Designing <strong>DOT and SAE-compliant visual and audio warning interfaces</strong> for blind spot scenarios; built 52 controlled Unity simulation experiments across 4 auditory alert conditions, iterating designs based on usability study data.</li>
+        <li>Conducting a human subjects study with <strong>40 participants</strong> on how senior citizens with cognitive challenges respond to AV mode, automatic emergency braking, and crash scenarios, using a <strong>Cruden driving simulator</strong> to collect and analyze behavioral response data.</li>
+        <li>Completed <strong>DREAM statistical analysis</strong> on NHTSA crash datasets, identifying temporal and scenario-based causation patterns and translating findings into prioritized engineering recommendations.</li>
+      </ul>
+      <div>
+        <span class="timeline-tag teal">AV Safety</span>
+        <span class="timeline-tag blue">Unity</span>
+        <span class="timeline-tag blue">Cruden Simulator</span>
+        <span class="timeline-tag gold">Human Factors</span>
+      </div>
+    </div>
 
-  <!-- Scroll Top -->
-  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+    <div class="timeline-item reveal" style="transition-delay: 0.13s">
+      <div class="timeline-dot teaching"></div>
+      <div class="timeline-meta">Jun 2025 – Jul 2025 · Michigan, USA</div>
+      <div class="timeline-title">Teaching Assistant, Algorithms, Computability &amp; Complexity</div>
+      <div class="timeline-org">University of Michigan, Dearborn (ESIEA International Program)</div>
+      <ul class="timeline-bullets">
+        <li>Facilitated <strong>8 lab sessions and 4 workshops</strong> on Turing machines, complexity theory, and algorithm design for 35+ French international graduate students.</li>
+        <li>Designed coding exercises and proof-based problems bridging theory with practical implementation; achieved 100% course completion rate across the cohort.</li>
+      </ul>
+      <div>
+        <span class="timeline-tag teal">Algorithms</span>
+        <span class="timeline-tag gray">CS Theory</span>
+      </div>
+    </div>
 
-  <!-- Preloader -->
-  <div id="preloader"></div>
+    <div class="timeline-item reveal" style="transition-delay: 0.18s">
+      <div class="timeline-dot research"></div>
+      <div class="timeline-meta">Oct 2024 – May 2025 · Michigan, USA</div>
+      <div class="timeline-title">Research Assistant, Unity Simulations</div>
+      <div class="timeline-org">University of Michigan, Dearborn</div>
+      <ul class="timeline-bullets">
+        <li>Built <strong>Unity simulations</strong> using C# for procedural level generation, producing <strong>50+ randomized tutorial environments</strong> for students across playthroughs.</li>
+        <li>Designed <strong>2D and 3D game-based tutorials</strong> that adapt dynamically across playthroughs, giving each student a unique learning experience while covering the same core concepts.</li>
+      </ul>
+      <div>
+        <span class="timeline-tag blue">Unity</span>
+        <span class="timeline-tag gray">C#</span>
+        <span class="timeline-tag gray">Game Design</span>
+      </div>
+    </div>
 
-  <!-- Vendor JS Files -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/php-email-form/validate.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
-  <script src="assets/vendor/typed.js/typed.umd.js"></script>
-  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
-  <script src="assets/vendor/waypoints/noframework.waypoints.js"></script>
-  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
-  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
-  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
-  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+    <div class="timeline-item reveal" style="transition-delay: 0.23s">
+      <div class="timeline-dot"></div>
+      <div class="timeline-meta">Mar 2024 – Jul 2024 · India</div>
+      <div class="timeline-title">Data Scientist</div>
+      <div class="timeline-org">Mroads Pvt Ltd</div>
+      <ul class="timeline-bullets">
+        <li>Took <strong>3 systems from POC to production</strong> in Python, including a facial recognition deep learning system achieving <strong>95%+ classification accuracy</strong> in a real-time embedded production environment.</li>
+        <li>Built a full <strong>LLM + RAG + vector database</strong> virtual recruitment platform consolidating 6 fragmented tools into a single workflow, reducing recruiter administrative overhead by ~50%.</li>
+        <li>Owned full inference infrastructure: data preprocessing pipelines, model serving layers, and post-processing output connecting ML models to live product frontends, with unit and functional test coverage.</li>
+      </ul>
+      <div>
+        <span class="timeline-tag blue">Python</span>
+        <span class="timeline-tag gold">LLMs + RAG</span>
+        <span class="timeline-tag blue">Computer Vision</span>
+        <span class="timeline-tag gray">Production ML</span>
+      </div>
+    </div>
 
-  <!-- Main JS File -->
-  <script src="assets/js/main.js"></script>
+    <div class="timeline-item reveal" style="transition-delay: 0.28s">
+      <div class="timeline-dot"></div>
+      <div class="timeline-meta">Jun 2023 – Jul 2023 · Remote</div>
+      <div class="timeline-title">AI / ADAS Intern</div>
+      <div class="timeline-org">CodeClause</div>
+      <ul class="timeline-bullets">
+        <li>Built a real-time lane detection neural network (TensorFlow, OpenCV) achieving <strong>95% accuracy</strong> across diverse road, weather, and lighting conditions.</li>
+        <li>Reduced per-frame inference latency by <strong>35% (150ms → 98ms)</strong> through iterative profiling and architecture optimization for real-time ADAS deployment.</li>
+        <li>Implemented custom pre-processing modules converting raw camera sensor frames into normalized model inputs, and post-processing layers producing structured ADAS signals for embedded integration.</li>
+      </ul>
+      <div>
+        <span class="timeline-tag blue">TensorFlow</span>
+        <span class="timeline-tag gold">OpenCV</span>
+        <span class="timeline-tag teal">ADAS</span>
+        <span class="timeline-tag gray">Real-time Inference</span>
+      </div>
+    </div>
+  </div>
 
+  <div class="education-cards reveal" style="transition-delay: 0.3s">
+    <div class="edu-card">
+      <div class="edu-deg">Master of Science in Artificial Intelligence</div>
+      <div class="edu-school">University of Michigan–Dearborn</div>
+      <div class="edu-year">2024 – 2026</div>
+    </div>
+    <div class="edu-card">
+      <div class="edu-deg">B.Tech CSE, Artificial Intelligence &amp; Machine Learning</div>
+      <div class="edu-school">Institute of Aeronautical Engineering</div>
+      <div class="edu-year">2020 – 2024</div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <span class="section-label">03 / Projects</span>
+  <h2 class="section-title">Things I've built.</h2>
+  <p class="section-sub">Ten projects spanning autonomous systems, AI agents, reinforcement learning, computer vision, financial modeling, and healthcare AI.</p>
+
+  <div class="projects-grid">
+
+    <div class="project-card reveal">
+      <div class="project-num">01</div>
+      <div class="project-icon">🧬</div>
+      <div class="project-name">Molecular RL Optimizer</div>
+      <p class="project-desc">A closed-loop RL system that designs drug-like small molecules by learning which chemical fragments to combine, mirroring real DMTA discovery cycles. A PPO agent iteratively appends fragments; reward combines QED and penalized logP with Gaussian noise to simulate assay variability. Mean QED improved from ~0.18 (random baseline) to ~0.42 over 100k timesteps. Drug-likeness rate (QED > 0.5): ~28%. Lipinski compliance: ~74%. Internal Tanimoto diversity: ~0.61.</p>
+      <div class="project-metrics">
+        <span class="metric accent">QED 0.18 → 0.42</span>
+        <span class="metric">PPO + RDKit</span>
+        <span class="metric gold">28% Drug-like</span>
+      </div>
+      <a href="https://github.com/Tejaswini-002/mol-rl-optimizer" target="_blank" class="project-github-link">github.com/Tejaswini-002/mol-rl-optimizer ↗</a>
+    </div>
+
+    <div class="project-card reveal" style="transition-delay: 0.07s">
+      <div class="project-num">02</div>
+      <div class="project-icon">🤖</div>
+      <div class="project-name">AI PR Reviewer Agent</div>
+      <p class="project-desc">Production Python AI inference agent integrating GitHub MCP Server for automated diff-aware PR analysis and structured risk scoring across multi-repo environments. Full pre/post-processing pipeline with secret-redaction guardrails, webhook automation, and unit-tested backend on Linux CI/CD.</p>
+      <div class="project-metrics">
+        <span class="metric accent">60% Review Time Saved</span>
+        <span class="metric">Production</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal" style="transition-delay: 0.07s">
+      <div class="project-num">03</div>
+      <div class="project-icon">🏭</div>
+      <div class="project-name">AMR Digital Twin</div>
+      <p class="project-desc">Unity-based warehouse simulation with autonomous robot navigation using A* path-planning, simplified kinematic modeling, and raycast-based obstacle detection. ROS integration on Linux for sensor data processing. Reduced workflow variability 18% via cycle-time optimization experiments.</p>
+      <div class="project-metrics">
+        <span class="metric teal">18% Variability Reduced</span>
+        <span class="metric">ROS + Unity</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal" style="transition-delay: 0.14s">
+      <div class="project-num">04</div>
+      <div class="project-icon">🛣️</div>
+      <div class="project-name">Road Lane Detection & ADAS</div>
+      <p class="project-desc">End-to-end real-time ADAS lane detection using OpenCV and TensorFlow. 90%+ accuracy across varied lighting, weather, and faded markings. Custom pre/post-processing modules: raw camera frame → normalized input → structured ADAS signal. Per-frame latency cut 35% (150ms → 98ms).</p>
+      <div class="project-metrics">
+        <span class="metric accent">95% Accuracy</span>
+        <span class="metric gold">35% Faster (150→98ms)</span>
+      </div>
+      <a href="https://github.com/Tejaswini-002/Road-Lane-Detection" target="_blank" class="project-github-link">github.com/Tejaswini-002/Road-Lane-Detection ↗</a>
+    </div>
+
+    <div class="project-card reveal" style="transition-delay: 0.05s">
+      <div class="project-num">05</div>
+      <div class="project-icon">🎮</div>
+      <div class="project-name">Unity Simulations</div>
+      <p class="project-desc">Built Unity simulations using C# and generative AI algorithms for procedural level generation, producing 50+ randomized tutorial environments for students across playthroughs. Designed performance benchmarking frameworks and applied systematic parameter tuning to optimize generative model quality and inference speed.</p>
+      <div class="project-metrics">
+        <span class="metric teal">50+ Environments</span>
+        <span class="metric">GenAI + Unity</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal" style="transition-delay: 0.12s">
+      <div class="project-num">06</div>
+      <div class="project-icon">👁️</div>
+      <div class="project-name">Face Recognition System</div>
+      <p class="project-desc">Deep learning facial recognition system processing large-scale image datasets with 95%+ classification accuracy in a real-time production environment. Eliminated manual check-in for 500+ employees, cutting HR overhead ~40%. Full inference infrastructure: preprocessing → model serving → post-processing.</p>
+      <div class="project-metrics">
+        <span class="metric gold">95%+ Accuracy</span>
+        <span class="metric">500+ Employees</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal" style="transition-delay: 0.19s">
+      <div class="project-num">07</div>
+      <div class="project-icon">🧑‍💼</div>
+      <div class="project-name">LLM + RAG Recruitment Platform</div>
+      <p class="project-desc">Full virtual recruitment platform integrating LLMs, RAG with vector databases, and AI agents. Consolidated 6 fragmented tools into one workflow, reducing recruiter administrative overhead ~50%. LLM-powered resume optimizer with keyword tuning improving ATS match scores across pilot job categories.</p>
+      <div class="project-metrics">
+        <span class="metric accent">6 Tools → 1</span>
+        <span class="metric">LLM + RAG</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal" style="transition-delay: 0.1s">
+      <div class="project-num">08</div>
+      <div class="project-icon">📈</div>
+      <div class="project-name">Stock Price Prediction</div>
+      <p class="project-desc">Hybrid ARIMA + LSTM model achieving RMSE 3.72 and MAPE 6.5%. Improved forecast accuracy 20% over baselines through advanced feature engineering and multi-horizon prediction strategies.</p>
+      <div class="project-metrics">
+        <span class="metric accent">RMSE 3.72</span>
+        <span class="metric">LSTM + ARIMA</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal" style="transition-delay: 0.17s">
+      <div class="project-num">09</div>
+      <div class="project-icon">💊</div>
+      <div class="project-name">Alternative Medicine Recommender</div>
+      <p class="project-desc">Symptom-driven recommendation engine benchmarking Random Forest, SVM, and KNN on 22,500 records. Production-quality evaluation pipeline with cross-validation and precision/recall reporting to identify optimal classifier for deployment.</p>
+      <div class="project-metrics">
+        <span class="metric gold">22,500 Records</span>
+        <span class="metric">Ensemble ML</span>
+      </div>
+    </div>
+
+    <div class="project-card reveal" style="transition-delay: 0.22s">
+      <div class="project-num">10</div>
+      <div class="project-icon">🚗</div>
+      <div class="project-name">AV Simulator Study</div>
+      <p class="project-desc">Human subjects study with 40 participants examining how senior citizens with cognitive challenges respond to autonomous vehicle features: AV mode, automatic emergency braking, and crash scenarios. Collecting and analyzing behavioral response data using a Cruden driving simulator to assess safety implications for aging populations.</p>
+      <div class="project-metrics">
+        <span class="metric teal">40 Participants</span>
+        <span class="metric">Cruden Simulator</span>
+        <span class="metric gold">Ongoing</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-layout">
+    <div class="reveal">
+      <span class="section-label">04 / Contact</span>
+      <div class="availability">Open to full-time roles</div>
+      <h2 class="contact-headline">Ready to build<br>something <em>real</em>?</h2>
+      <p class="contact-desc">
+        Actively looking for full-time AI/ML engineering roles: production systems, 
+        perception pipelines, and research-adjacent positions. Based in Michigan, USA. 
+        Open to hybrid and remote.
+      </p>
+      <a href="mailto:tejaswini02021@gmail.com" class="btn-primary" style="background: var(--accent);">Send a Message</a>
+    </div>
+
+    <div class="contact-links reveal" style="transition-delay: 0.15s">
+      <a href="mailto:tejaswini02021@gmail.com" class="contact-link">
+        <div class="contact-link-icon">✉</div>
+        <div class="contact-link-text">
+          <span class="contact-link-label">Email</span>
+          <span class="contact-link-value">tejaswini02021@gmail.com</span>
+        </div>
+        <span class="contact-arrow">↗</span>
+      </a>
+
+      <a href="https://www.linkedin.com/in/tejaswini-2k24/" class="contact-link" target="_blank">
+        <div class="contact-link-icon">in</div>
+        <div class="contact-link-text">
+          <span class="contact-link-label">LinkedIn</span>
+          <span class="contact-link-value">linkedin.com/in/tejaswini-2k24</span>
+        </div>
+        <span class="contact-arrow">↗</span>
+      </a>
+
+      <a href="https://github.com/Tejaswini-002" class="contact-link" target="_blank">
+        <div class="contact-link-icon" style="font-size: 0.85rem; font-weight: 700; font-family: var(--font-mono);">gh</div>
+        <div class="contact-link-text">
+          <span class="contact-link-label">GitHub</span>
+          <span class="contact-link-value">github.com/Tejaswini-002</span>
+        </div>
+        <span class="contact-arrow">↗</span>
+      </a>
+
+      <a href="tel:+13133844589" class="contact-link">
+        <div class="contact-link-icon">☎</div>
+        <div class="contact-link-text">
+          <span class="contact-link-label">Phone</span>
+          <span class="contact-link-value">+1 (313) 384-4589</span>
+        </div>
+        <span class="contact-arrow">↗</span>
+      </a>
+
+      <div class="contact-link" style="border-style: dashed; cursor: default;">
+        <div class="contact-link-icon">📍</div>
+        <div class="contact-link-text">
+          <span class="contact-link-label">Location</span>
+          <span class="contact-link-value">Michigan, USA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Tejaswini Vemulapally. All rights reserved.</p>
+  <p>Built with intent. Designed to be seen.</p>
+  <p><a href="https://www.linkedin.com/in/tejaswini-2k24/" target="_blank">LinkedIn</a> · <a href="https://github.com/Tejaswini-002" target="_blank">GitHub</a> · <a href="mailto:tejaswini02021@gmail.com">Email</a></p>
+</footer>
+
+<script>
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+  reveals.forEach(el => io.observe(el));
+
+  // Active nav link on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(s => {
+      if (window.scrollY >= s.offsetTop - 120) current = s.id;
+    });
+    navLinks.forEach(a => {
+      a.style.color = a.getAttribute('href') === '#' + current ? 'var(--ink)' : '';
+    });
+  });
+
+  // Skill bar animation on scroll
+  const skillFills = document.querySelectorAll('.skill-fill');
+  const widths = Array.from(skillFills).map(el => el.style.width);
+  skillFills.forEach(el => el.style.width = '0');
+  const skillObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        const idx = Array.from(skillFills).indexOf(e.target);
+        setTimeout(() => { e.target.style.width = widths[idx]; }, 100);
+        skillObserver.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.5 });
+  skillFills.forEach(el => skillObserver.observe(el));
+</script>
 </body>
-
 </html>
