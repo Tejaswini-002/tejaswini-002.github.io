@@ -461,9 +461,123 @@
 
   .about-grid {
     display: grid;
-    grid-template-columns: 1.4fr 1fr;
-    gap: 5rem;
+    grid-template-columns: 1.35fr 1fr;
+    gap: clamp(2.5rem, 5vw, 4rem);
     align-items: start;
+  }
+
+  .about-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+    position: sticky;
+    top: 88px;
+  }
+
+  .about-card {
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 1.35rem 1.4rem;
+  }
+
+  .about-card-label {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted-2);
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .about-facts {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .about-fact {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.88rem;
+  }
+
+  .about-fact:first-child { padding-top: 0; }
+  .about-fact:last-child { border-bottom: none; padding-bottom: 0; }
+
+  .about-fact-k {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--muted-2);
+    flex-shrink: 0;
+  }
+
+  .about-fact-v {
+    color: var(--ink);
+    font-weight: 500;
+    text-align: right;
+    line-height: 1.35;
+  }
+
+  .about-focus-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .about-focus-list li {
+    position: relative;
+    padding-left: 1rem;
+    margin-bottom: 0.75rem;
+    font-size: 0.9rem;
+    line-height: 1.55;
+    color: var(--muted);
+  }
+
+  .about-focus-list li:last-child { margin-bottom: 0; }
+
+  .about-focus-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  .about-quick {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .about-quick a {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    text-decoration: none;
+    color: var(--ink-3);
+    padding: 0.5rem 0.95rem;
+    border-radius: var(--radius);
+    border: 1px solid rgba(11,12,14,0.15);
+    background: rgba(255,255,255,0.5);
+    transition: color 0.2s, border-color 0.2s, background 0.2s;
+  }
+
+  .about-quick a:hover {
+    color: var(--ink);
+    border-color: rgba(11,12,14,0.3);
+    background: #fff;
   }
 
   .about-text p {
@@ -495,67 +609,6 @@
     border: 1px solid var(--border);
     padding: 0.3rem 0.75rem;
     border-radius: 100px;
-  }
-
-  .skills-panel {
-    display: flex;
-    flex-direction: column;
-    gap: 1.8rem;
-  }
-
-  .skill-group h4 {
-    font-family: var(--font-mono);
-    font-size: 0.68rem;
-    font-weight: 500;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--muted-2);
-    margin-bottom: 0.9rem;
-  }
-
-  .skill-bars { display: flex; flex-direction: column; gap: 0.7rem; }
-
-  .skill-row {
-    display: flex;
-    align-items: center;
-    gap: 0.75rem;
-  }
-
-  .skill-name {
-    font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--ink);
-    min-width: 100px;
-    font-family: var(--font-mono);
-  }
-
-  .skill-track {
-    flex: 1;
-    height: 3px;
-    background: var(--surface-2);
-    border-radius: 100px;
-    overflow: visible;
-    position: relative;
-  }
-
-  .skill-fill {
-    height: 100%;
-    background: var(--ink);
-    border-radius: 100px;
-    transition: width 1.2s cubic-bezier(0.16, 1, 0.3, 1);
-    position: relative;
-  }
-
-  .skill-fill.accent { background: var(--accent); }
-  .skill-fill.gold { background: var(--gold); }
-  .skill-fill.teal { background: var(--teal); }
-
-  .skill-pct {
-    font-family: var(--font-mono);
-    font-size: 0.65rem;
-    color: var(--muted-2);
-    min-width: 32px;
-    text-align: right;
   }
 
   /* ── EXPERIENCE TIMELINE ── */
@@ -1011,6 +1064,7 @@
     .hero-actions { justify-content: center; }
     .hero-desc { margin: 0 auto 2.5rem; }
     .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+    .about-aside { position: static; }
     .projects-grid { grid-template-columns: 1fr; }
     .contact-layout { grid-template-columns: 1fr; gap: 3rem; }
     .education-cards { grid-template-columns: 1fr; }
@@ -1183,83 +1237,46 @@
         <span class="tag">Generative AI</span>
       </div>
     </div>
-    <div class="skills-panel reveal" style="transition-delay: 0.15s">
-      <div class="skill-group">
-        <h4>Languages & Frameworks</h4>
-        <div class="skill-bars">
-          <div class="skill-row">
-            <span class="skill-name">Python</span>
-            <div class="skill-track"><div class="skill-fill" style="width:90%"></div></div>
-            <span class="skill-pct">90%</span>
+
+    <aside class="about-aside reveal" style="transition-delay: 0.12s">
+      <div class="about-card">
+        <span class="about-card-label">At a glance</span>
+        <div class="about-facts">
+          <div class="about-fact">
+            <span class="about-fact-k">Program</span>
+            <span class="about-fact-v">MS, Artificial Intelligence</span>
           </div>
-          <div class="skill-row">
-            <span class="skill-name">HTML/CSS</span>
-            <div class="skill-track"><div class="skill-fill" style="width:90%"></div></div>
-            <span class="skill-pct">90%</span>
+          <div class="about-fact">
+            <span class="about-fact-k">University</span>
+            <span class="about-fact-v">UMich&nbsp;Dearborn</span>
           </div>
-          <div class="skill-row">
-            <span class="skill-name">SQL</span>
-            <div class="skill-track"><div class="skill-fill" style="width:85%"></div></div>
-            <span class="skill-pct">85%</span>
+          <div class="about-fact">
+            <span class="about-fact-k">GPA</span>
+            <span class="about-fact-v">3.71</span>
           </div>
-          <div class="skill-row">
-            <span class="skill-name">JavaScript</span>
-            <div class="skill-track"><div class="skill-fill" style="width:80%"></div></div>
-            <span class="skill-pct">80%</span>
+          <div class="about-fact">
+            <span class="about-fact-k">Location</span>
+            <span class="about-fact-v">Michigan, USA</span>
           </div>
-          <div class="skill-row">
-            <span class="skill-name">Java</span>
-            <div class="skill-track"><div class="skill-fill" style="width:75%"></div></div>
-            <span class="skill-pct">75%</span>
+          <div class="about-fact">
+            <span class="about-fact-k">Status</span>
+            <span class="about-fact-v">Open to full-time</span>
           </div>
         </div>
       </div>
-      <div class="skill-group">
-        <h4>AI / ML Stack</h4>
-        <div class="skill-bars">
-          <div class="skill-row">
-            <span class="skill-name">TensorFlow</span>
-            <div class="skill-track"><div class="skill-fill accent" style="width:82%"></div></div>
-            <span class="skill-pct">82%</span>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">Scikit-learn</span>
-            <div class="skill-track"><div class="skill-fill accent" style="width:80%"></div></div>
-            <span class="skill-pct">80%</span>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">OpenCV</span>
-            <div class="skill-track"><div class="skill-fill accent" style="width:75%"></div></div>
-            <span class="skill-pct">75%</span>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">Deep Learning</span>
-            <div class="skill-track"><div class="skill-fill accent" style="width:80%"></div></div>
-            <span class="skill-pct">80%</span>
-          </div>
-        </div>
+      <div class="about-card">
+        <span class="about-card-label">Right now</span>
+        <ul class="about-focus-list">
+          <li>Production AI agents, MCP tooling, and CI/CD-heavy Python services at Leap Innovations.</li>
+          <li>AV safety, human factors, and simulator studies with UMTRI.</li>
+          <li>End-to-end ownership from data and models to shipped interfaces.</li>
+        </ul>
       </div>
-      <div class="skill-group">
-        <h4>Dev & Tools</h4>
-        <div class="skill-bars">
-          <div class="skill-row">
-            <span class="skill-name">Git</span>
-            <div class="skill-track"><div class="skill-fill gold" style="width:90%"></div></div>
-            <span class="skill-pct">90%</span>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">Flask/Django</span>
-            <div class="skill-track"><div class="skill-fill gold" style="width:85%"></div></div>
-            <span class="skill-pct">85%</span>
-          </div>
-          <div class="skill-row">
-            <span class="skill-name">React/Node</span>
-            <div class="skill-track"><div class="skill-fill gold" style="width:80%"></div></div>
-            <span class="skill-pct">80%</span>
-          </div>
-        </div>
+      <div class="about-quick">
+        <a href="assets/Tejaswini_Vemulapally_Resume.pdf" target="_blank">Download resume</a>
+        <a href="mailto:tejaswini02021@gmail.com">Email</a>
       </div>
-    </div>
+    </aside>
   </div>
 </section>
 
@@ -1267,7 +1284,7 @@
 <!-- EXPERIENCE -->
 <section id="resume">
   <span class="section-label">02 / Experience</span>
-  <h2 class="section-title">Where I've worked.</h2>
+  <h2 class="section-title">Professional experience.</h2>
   <p class="section-sub">From production inference pipelines and AI agents to autonomous vehicle safety research. Every role has been about making AI useful.</p>
 
   <div class="timeline">
@@ -1393,7 +1410,7 @@
 <!-- PROJECTS -->
 <section id="projects">
   <span class="section-label">03 / Projects</span>
-  <h2 class="section-title">Things I've built.</h2>
+  <h2 class="section-title">Proof in prototype.</h2>
   <p class="section-sub">Ten projects spanning autonomous systems, AI agents, reinforcement learning, computer vision, financial modeling, and healthcare AI.</p>
 
   <div class="projects-grid">
@@ -1601,21 +1618,6 @@
       a.style.color = a.getAttribute('href') === '#' + current ? 'var(--ink)' : '';
     });
   });
-
-  // Skill bar animation on scroll
-  const skillFills = document.querySelectorAll('.skill-fill');
-  const widths = Array.from(skillFills).map(el => el.style.width);
-  skillFills.forEach(el => el.style.width = '0');
-  const skillObserver = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        const idx = Array.from(skillFills).indexOf(e.target);
-        setTimeout(() => { e.target.style.width = widths[idx]; }, 100);
-        skillObserver.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.5 });
-  skillFills.forEach(el => skillObserver.observe(el));
 </script>
 </body>
 </html>
